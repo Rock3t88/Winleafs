@@ -1,4 +1,5 @@
 ﻿using System;
+using Winleafs.Server;
 
 namespace Winleafs.Api.Test
 {
@@ -6,23 +7,26 @@ namespace Winleafs.Api.Test
     {
         static void Main(string[] args)
         {
-            var nanoLeafClient = new NanoleafClient("192.168.178.160", 16021);
-            Console.WriteLine("Authorizing..");
-            nanoLeafClient.AuthorizationEndpoint.GetAuthTokenAsync().GetAwaiter().GetResult();
-            Console.WriteLine("Authorized!");
-            Console.WriteLine("Getting effects...");
-            var effects = nanoLeafClient.EffectsEndpoint.GetEffectsListAsync().GetAwaiter().GetResult();
-            foreach (var effect in effects)
-            {
-                Console.WriteLine(effect);
-            }
+            //var nanoLeafClient = new NanoleafClient("192.168.178.160", 16021);
+            //Console.WriteLine("Authorizing..");
+            //nanoLeafClient.AuthorizationEndpoint.GetAuthTokenAsync().GetAwaiter().GetResult();
+            //Console.WriteLine("Authorized!");
+            //Console.WriteLine("Getting effects...");
+            //var effects = nanoLeafClient.EffectsEndpoint.GetEffectsListAsync().GetAwaiter().GetResult();
+            //foreach (var effect in effects)
+            //{
+            //    Console.WriteLine(effect);
+            //}
 
-            while (true)
-            {
-                var effectName = Console.ReadLine();
-                nanoLeafClient.EffectsEndpoint.SetSelectedEffectAsync(effectName).GetAwaiter().GetResult();
-                Console.WriteLine("Set {0}", effectName);
-            }
+            //while (true)
+            //{
+            //    var effectName = Console.ReadLine();
+            //    nanoLeafClient.EffectsEndpoint.SetSelectedEffectAsync(effectName).GetAwaiter().GetResult();
+            //    Console.WriteLine("Set {0}", effectName);
+            //}
+
+            WinleafsServerClient client = new WinleafsServerClient();
+            client.SpotifyEndpoint.Connect();
         }
     }
 }

@@ -9,5 +9,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Winleafs.Api\Winleafs.Api.csproj" />
+    <ProjectReference Include="..\Winleafs.Server\Winleafs.Server.csproj" />
   </ItemGroup>
 </Project>
